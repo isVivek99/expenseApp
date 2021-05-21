@@ -9,36 +9,61 @@
     integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" 
     crossorigin="anonymous"
     >
+    <script src="https://use.fontawesome.com/51b286ec9e.js"></script>
     <title>ExpenseTracker</title>
 </head>
 <body style="min-height: 100vh">
-    <nav class="navbar navbar-dark bg-dark" >
+    <nav class="navbar navbar-dark bg-dark">
         <span class="navbar-brand mb-0 h1">My Expense</span>
-        <span class="navbar-brand mb-0 h1" id="headingTotal"></span>   
-    </nav>
-
-    <div class="container-fluid bg-light">
+        <span class="navbar-brand mb-0 h1" id="headingTotal">Total:0</span>
+       
+      </nav>
+      <div class="container-fluid bg-light">
         <div class="container">
-            <div class="jumbotron mt-4">
-                <div class="input-group mb-3">
-                    <input
-                        id="inputAmount"
-                        type="text"
-                        class="form-control"
-                        placeholder="Amount spent"
-                        aria-label="Amount spent"
-                        aria-describedby="spent in rupee"
-                    />
-                    <div class="input-group-append">
-                        <span class="input-group-text" id="spent in rupee">₹</span>
-                      </div>
-                    </div>
-                </div>
-
+          <div class="jumbotron mt-4">
+            <div class="input-group mb-3">
+              <input
+                id="inputAmount"
+                type="text"
+                class="form-control"
+                placeholder="Amount spent"
+                aria-label="Amount spent"
+                aria-describedby="spent in rupee"
+              />
+              <div class="input-group-append">
+                <span class="input-group-text" id="spent in rupee">₹</span>
+              </div>
             </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="spent at">@</span>
+              </div>
+              <input
+                id="inputDesc"
+                type="text"
+                class="form-control"
+                placeholder="spent On"
+                aria-label="spent On"
+                aria-describedby="spent at"
+              />
+              <div class="input-group-append">
+                <button
+                  class="btn btn-outline-primary"
+                  type="button"
+                  id="btnAddExpense"
+                >
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+          <div>
+            <ul class="list-group" id="expenseTable">
+                
+            </ul>
+          </div>
         </div>
-    </div>
-
-
+      </div>
 </body>
+<script src="./index.js"></script>
 </html>
