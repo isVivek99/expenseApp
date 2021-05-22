@@ -18,21 +18,20 @@ function addExpenseOnFireStore(expense, textDesc){
         .update({
             total:firebase.firestore.FieldValue.increment(expense)
         });
-        headingTotal.textContent = `Total:${doc.data().total}`;
-       // getTotal()
+
+      
+        setTimeout(getTotal,1000);
+        //getDocuments()
 }
 
 function getTotal(){
     db.collection("expenses")
-    .doc("total")
-    .get()
-    .then((doc)=>{
-        if(doc.exists){
-            console.log(doc.data().total);
-            headingTotal.textContent = `Total:${doc.data().total}`;
-        }
-    });
-    console.log("updated list");
+                    .doc("total")
+                    .get()
+                    .then((doc)=>{
+                            console.log("docDATA:",doc.data().total);
+                            headingTotal.textContent = `Total:${doc.data().total}`;
+                    });
 }
 
 
@@ -43,6 +42,7 @@ function getDocuments(){
         .onSnapshot((snap)=>{
             let documents=[];
             snap.forEach((doc)=>{
+                    console.log(doc.id);
                     documents.push({
                         ...doc.data(),
                         docId:doc.id,
@@ -82,6 +82,6 @@ function deleteFromFirebase(docId, amount){
         
       total: firebase.firestore.FieldValue.increment(-amount),
     });
-    //getTotal()  
-    headingTotal.textContent = `Total:${doc.data().total}`;
+    setTimeout(getTotal,1000);
+   // getDocuments();  
 }
